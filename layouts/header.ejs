@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panda Shop Market</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">SHOP</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="navbar-brand" href="#">PANDA Express</a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/">Online Retail</a>
+            </li>
+
+            <!-- <ul class="nav navbar-nav"> -->
+            <% pages.forEach(function(page) { %> <% if (page.slug == "home") {
+            %>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/"><%= page.title %></a>
+            </li>
+
+            <% } else { %>
+            <li class="nav-item">
+              <a class="navbar-brand" href="<%= page.slug %>"
+                ><%= page.title %></a
+              >
+            </li>
+            <% } %> <% }); %>
+            <!-- </ul> -->
+
+            <!-- <ul> -->
+            <% if (user) { %>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/users/logout"
+                >Hi,&nbsp;&nbsp;&nbsp; <%= user.username %> &nbsp;&nbsp; (Log
+                Out )</a
+              >
+            </li>
+
+            <% } else { %>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/users/register"
+                >&nbsp;&nbsp;Register</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/users/login">&nbsp;&nbsp;Log in</a>
+            </li>
+            <% } %> <% if (user && user.admin == 1) { %>
+            <li class="nav-item">
+              <a class="navbar-brand" href="/admin/pages">Admin Area</a>
+            </li>
+
+            <% } %>
+            <!-- </ul> -->
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!---->
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <h3>Cartegories</h3>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <a href="/products">All Products</a>
+          </li>
+          <% cartegories.forEach(function(c) { %>
+          <li class="list-group-item">
+            <a href="/products/<%= c.slug %>"><%= c.title %></a>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="col-xs-12 col-md-1"></div>
+      <div class="col-xs-12 col-md-8"></div>
+    </div>
+
+    <%= messages('messages', locals)%><% if (errors) { %>
+    <div class="alert alert-danger">
+      <% errors.forEach(error => { %>
+      <div class="alert alert-danger"><%=error.msg %></div>
+      <% }); %>
+    </div>
+    <% } %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

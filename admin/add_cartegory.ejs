@@ -1,0 +1,26 @@
+<%- include('../layouts/adminHeader') %>
+
+<h2 class="page-title">Admin Page</h2>
+<a href="/admin/cartegories" class="btn btn-primary">Back to all Cartegories</a>
+<br /><br />
+
+<h1>Welcome To Admin Add A Cartegorie Page</h1>
+
+<form method="post" action="/admin/cartegories/add-cartegory">
+  <div class="form-group">
+    <label for="Title"></label>
+    <input
+      type="text"
+      name="title"
+      class="form-control"
+      placeholder="Title"
+      value="<%= title %>"
+    />
+  </div>
+
+  <button class="btn btn-primary" aria-placeholder="Write some content">
+    Submit
+  </button>
+</form>
+
+<%- include('../layouts/adminFooter') %>

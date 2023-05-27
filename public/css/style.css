@@ -1,0 +1,31 @@
+#imgPreview {
+  margin: 20px;
+}
+
+img.pimage {
+  width: 150px;
+}
+
+a.pa {
+  display: inline-block;
+  height: 160px;
+}
+
+.row.products .p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.alert-danger {
+  color: white;
+  background-color: red;
+  border-color: pink;
+}
+
+nav {
+  margin-bottom: 30px;
+}
+
+.row {
+  margin-bottom: 30px;
+}
